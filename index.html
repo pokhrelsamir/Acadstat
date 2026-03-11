@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>ACADSTAT - Academic Management Platform</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <!-- Login -->
+    <section id="screen-login" class="screen active">
+      <div class="login-wrapper">
+        <div class="logo-container">
+          <img src="Black Illustrated School Logo.png" alt="ACADSTAT Logo" class="login-logo-img">
+          <h1 class="logo-text">ACADSTAT</h1>
+        </div>
+        <form id="login-form" class="login-form">
+          <input type="text" name="email" placeholder="Email or Username" required autocomplete="username">
+          <div class="password-wrapper">
+            <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
+            <span class="icon-eye password-toggle"></span>
+          </div>
+          <a href="#" class="forgot-link">Forget password?</a>
+          <button type="submit" class="btn-login">Login</button>
+          <p class="login-error" id="login-error"></p>
+        </form>
+        <p class="demo-hint">Demo: student/student123 | teacher/teacher123 | admin/admin123</p>
+      </div>
+    </section>
+
+    <!-- STUDENT: Home (Node 41-2) - Default after login -->
+    <section id="screen-student-home" class="screen" data-role="student">
+      <header class="app-header header-logo-only">
+        <img src="Black Illustrated School Logo.png" alt="ACADSTAT Logo" class="header-logo-img">
+      </header>
+      <main class="app-main student-home-main">
+        <div class="greeting-section">
+          <div class="greeting-left">
+            <p class="hello-text">Hello</p>
+            <h2 class="user-name" id="student-name">Ram Kumar Sharma</h2>
+          </div>
+          <div class="greeting-right">
+            <div class="user-avatar">
+              <span class="icon-student"></span>
+            </div>
+          </div>
+        </div>
+        <div class="search-bar">
+          <span class="icon-search"></span>
+          <input type="text" id="student-search-input" placeholder="Search academics...">
+        </div>
+        <p class="section-label">Academics</p>
+        <div class="grid-tiles" id="student-grid-tiles">
+          <div class="grid-tile" data-navigate="student-courses"><div class="tile-icon">👥</div><span>Students</span></div>
+          <div class="grid-tile" data-navigate="chapters"><div class="tile-icon">📚</div><span>Syllabus</span></div>
+          <div class="grid-tile"><div class="tile-icon">📝</div><span>Exams</span></div>
+          <div class="grid-tile"><div class="tile-icon">📅</div><span>Events</span></div>
+          <div class="grid-tile"><div class="tile-icon">👨‍🏫</div><span>Teachers</span></div>
+          <div class="grid-tile"><div class="tile-icon">🕐</div><span>Time Table</span></div>
+          <div class="grid-tile"><div class="tile-icon">📊</div><span>Results</span></div>
+          <div class="grid-tile"><div class="tile-icon">✉️</div><span>Inbox</span></div>
+          <div class="grid-tile"><div class="tile-icon">✅</div><span>Attendance</span></div>
+          <div class="grid-tile"><div class="tile-icon">📋</div><span>Assignments</span></div>
+          <div class="grid-tile"><div class="tile-icon">💰</div><span>Fees</span></div>
+          <div class="grid-tile"><div class="tile-icon">❓</div><span>Ask Doubt</span></div>
+        </div>
+      </main>
+      <nav class="bottom-nav-extended">
+        <button class="nav-item active" data-navigate="student-home"><span class="icon-home"></span>Home</button>
+        <button class="nav-item" data-navigate="student-search"><span class="icon-search"></span>Search</button>
+        <button class="nav-item" data-navigate="settings"><span class="icon-settings"></span>Settings</button>
+        <button class="nav-item" data-navigate="alerts"><span class="icon-bell"></span>Alerts</button>
+        <button class="nav-item" data-navigate="profile"><span class="icon-graduation"></span>Profile</button>
+      </nav>
+    </section>
+
+    <!-- STUDENT: Courses (Node 1-7265) - Opens from 3-dot -->
+    <section id="screen-student-courses" class="screen" data-role="student">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Courses</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <div class="course-tabs">
+          <button class="tab active">BSc.CSIT</button>
+          <button class="tab">BSc.IT</button>
+          <button class="tab">MBA</button>
+        </div>
+        <div class="semester-cards">
+          <div class="semester-card" data-navigate="chapters"><div class="semester-icon">1</div><h3>First Semester</h3><p>5 credit hours</p></div>
+          <div class="semester-card" data-navigate="chapters"><div class="semester-icon">2</div><h3>Second Semester</h3><p>16 credit hours</p></div>
+          <div class="semester-card" data-navigate="chapters"><div class="semester-icon">3</div><h3>Third Semester</h3><p>21 credit hours</p></div>
+          <div class="semester-card" data-navigate="chapters"><div class="semester-icon">4</div><h3>Fourth Semester</h3><p>6 credit hours</p></div>
+        </div>
+      </main>
+    </section>
+
+    <!-- Chapters (from Home) -->
+    <section id="screen-chapters" class="screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Chapters</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <div class="course-tabs">
+          <button class="tab active">Physics</button>
+          <button class="tab">Mathematics</button>
+          <button class="tab">Digital Logic</button>
+        </div>
+        <div class="semester-cards">
+          <div class="semester-card"><div class="semester-icon">M</div><h3>Mechanics</h3><p>5 credit hours</p></div>
+          <div class="semester-card"><div class="semester-icon">H</div><h3>Heat & Thermodynamics</h3><p>16 credit hours</p></div>
+          <div class="semester-card"><div class="semester-icon">O</div><h3>Optics</h3><p>21 credit hours</p></div>
+        </div>
+      </main>
+    </section>
+
+    <!-- Profile -->
+    <section id="screen-profile" class="screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Profile</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main profile-main">
+        <div class="profile-header">
+          <div class="avatar"><span class="icon-student"></span></div>
+          <h2>Ram Kumar Sharma</h2>
+          <p class="username">_ramkumarsharma</p>
+        </div>
+        <ul class="menu-list">
+          <li><a href="#" data-navigate="personal-details">Manage your personal details<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="academic-reports">View your academic reports<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="academic-details">Academic Details<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="result-summary">Result Summary<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="security-settings">Login & Security Settings<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-action="logout" class="logout">Log Out<span class="icon-logout"></span></a></li>
+        </ul>
+      </main>
+      <nav class="bottom-nav-extended">
+        <button class="nav-item" data-navigate="student-home"><span class="icon-home"></span>Home</button>
+        <button class="nav-item" data-navigate="student-search"><span class="icon-search"></span>Search</button>
+        <button class="nav-item" data-navigate="settings"><span class="icon-settings"></span>Settings</button>
+        <button class="nav-item" data-navigate="alerts"><span class="icon-bell"></span>Alerts</button>
+        <button class="nav-item active" data-navigate="profile"><span class="icon-graduation"></span>Profile</button>
+      </nav>
+    </section>
+
+    <!-- List screen template (Academic reports, Academic Details, Result Summary, Security, Personal details, Settings) -->
+    <section id="screen-academic-reports" class="screen list-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Academic reports</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <ul class="menu-list">
+          <li><a href="#" data-navigate="academic-summary">Overall Academic Summary<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="subject-performance">Subject-wise Performance<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="performance-trend">Performance Trend Analysis<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="download-report">Download Result Report<span class="icon-arrow"></span></a></li>
+        </ul>
+      </main>
+    </section>
+
+    <section id="screen-academic-details" class="screen list-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Academic Details</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <ul class="menu-list">
+          <li><a href="#" data-navigate="program-info">Program Information<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="department-info">Department Information<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="academic-calendar">Academic Calendar<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="registered-subjects">Registered Subjects<span class="icon-arrow"></span></a></li>
+        </ul>
+      </main>
+    </section>
+
+    <section id="screen-result-summary" class="screen list-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Result Summary</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <ul class="menu-list">
+          <li><a href="#" data-navigate="latest-result">Latest Semester Result<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="subject-marks">Subject-wise Marks Summary<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="gpa-overview">Semester-wise GPA Overview<span class="icon-arrow"></span></a></li>
+          <li><a href="#" data-navigate="result-date">Result Publication Date<span class="icon-arrow"></span></a></li>
+        </ul>
+      </main>
+    </section>
+
+    <section id="screen-security-settings" class="screen list-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Login & Security Settings</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <ul class="menu-list">
+          <li><a href="#">Login History<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Two-Factor Authentication (2FA)<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Session Management<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Security Alerts<span class="icon-arrow"></span></a></li>
+        </ul>
+      </main>
+    </section>
+
+    <section id="screen-personal-details" class="screen list-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Personal details</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <ul class="menu-list">
+          <li><a href="#">Full Name<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Date of Birth<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Change Password<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Address Details<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Emergency Contact<span class="icon-arrow"></span></a></li>
+        </ul>
+      </main>
+    </section>
+
+    <section id="screen-settings" class="screen list-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Settings</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <ul class="menu-list">
+          <li><a href="#">Theme Mode<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Font Size Adjustment<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Language<span class="icon-arrow"></span></a></li>
+          <li><a href="#">Default Semester View<span class="icon-arrow"></span></a></li>
+        </ul>
+      </main>
+    </section>
+
+    <section id="screen-alerts" class="screen list-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Alerts</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <p class="placeholder-text">No new alerts at this time.</p>
+      </main>
+    </section>
+
+    <section id="screen-student-search" class="screen list-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Search</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <div class="search-bar" style="margin-bottom: 1rem;">
+          <span class="icon-search"></span>
+          <input type="text" placeholder="Search...">
+        </div>
+        <p class="placeholder-text">Search for courses, exams, results, and more.</p>
+      </main>
+    </section>
+
+    <!-- Detail screens -->
+    <section id="screen-program-info" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Program Information</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <div class="detail-list">
+          <div class="detail-row"><span class="label">Institute</span><span class="value">IOST</span></div>
+          <div class="detail-row"><span class="label">Program Name</span><span class="value">Bsc.CSIT</span></div>
+          <div class="detail-row"><span class="label">Program Duration</span><span class="value">4 years</span></div>
+          <div class="detail-row"><span class="label">Affiliated University</span><span class="value">TU</span></div>
+        </div>
+      </main>
+    </section>
+
+    <section id="screen-department-info" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Department Information</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main">
+        <div class="department-content">
+          <div class="dept-image-placeholder"></div>
+          <h3>Soch College of IT</h3>
+          <p>Soch College of IT is an IT-focused academic institution in Nepal, affiliated with Tribhuvan University. Established in 2070 B.S., the college is committed to providing quality and affordable IT education. Located in a peaceful and supportive learning environment, it emphasizes both theoretical knowledge and practical skills through projects, lab work, and interactive learning. The college also focuses on developing soft skills such as communication, teamwork, and problem-solving, preparing students for successful careers in the IT industry.</p>
+        </div>
+      </main>
+    </section>
+
+    <!-- Placeholder screens for other items -->
+    <section id="screen-academic-summary" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Overall Academic Summary</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Your academic summary will appear here.</p></main>
+    </section>
+    <section id="screen-subject-performance" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Subject-wise Performance</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Subject-wise performance data will appear here.</p></main>
+    </section>
+    <section id="screen-performance-trend" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Performance Trend Analysis</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Performance trend analysis will appear here.</p></main>
+    </section>
+    <section id="screen-download-report" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Download Result Report</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Download your result report.</p><button class="btn-primary">Download PDF</button></main>
+    </section>
+    <section id="screen-academic-calendar" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Academic Calendar</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Academic calendar will appear here.</p></main>
+    </section>
+    <section id="screen-registered-subjects" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Registered Subjects</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Your registered subjects will appear here.</p></main>
+    </section>
+    <section id="screen-latest-result" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Latest Semester Result</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Latest semester result will appear here.</p></main>
+    </section>
+    <section id="screen-subject-marks" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Subject-wise Marks Summary</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Subject-wise marks will appear here.</p></main>
+    </section>
+    <section id="screen-gpa-overview" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Semester-wise GPA Overview</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">GPA overview will appear here.</p></main>
+    </section>
+    <section id="screen-result-date" class="screen detail-screen">
+      <header class="app-header with-back">
+        <button class="back-btn" data-back><span class="icon-back"></span></button>
+        <h2 class="header-title">Result Publication Date</h2>
+        <span class="spacer"></span>
+      </header>
+      <main class="app-main"><p class="placeholder-text">Result publication date will appear here.</p></main>
+    </section>
+  </div>
+  <script src="app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
