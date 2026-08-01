@@ -8,7 +8,7 @@ The UI is implemented based on the Figma design and is optimized for **web deplo
 
 ---
 
-## 🚀 Features
+## 🚀 AcadStat Features at the system
 
 ### 🔐 Authentication & Role-Based Access
 
