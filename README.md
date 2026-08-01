@@ -4,7 +4,6 @@
 **ACADSTAT** is a role-based, mobile-first academic management platform designed for **Students, Teachers, and Administrators**.  
 The application provides a centralized system for managing academic information, student performance, results, attendance, and institutional activities.
 
-The UI is implemented based on the Figma design and is optimized for **web deployment and Web-to-APK conversion**.
 
 ---
 
