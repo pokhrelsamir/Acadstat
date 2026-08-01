@@ -1,6 +1,5 @@
 # ACADSTAT - Academic Management Platform
 
-![ACADSTAT Banner](https://via.placeholder.com/1200x400)
 
 **ACADSTAT** is a role-based, mobile-first academic management platform designed for **Students, Teachers, and Administrators**.  
 The application provides a centralized system for managing academic information, student performance, results, attendance, and institutional activities.
